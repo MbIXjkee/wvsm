@@ -4,17 +4,31 @@ void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   // This widget is the root of your application.
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
+        primaryColor: Colors.red,
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: TestPage(),
+      home: buildPage(),
+    );
+  }
+
+  Widget buildPage() {
+    return Scaffold(
+      body: Container(
+        color: Theme.of(context).primaryColor,
+      ),
     );
   }
 }
@@ -25,7 +39,9 @@ class TestPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(),
+      body: Container(
+        color: Theme.of(context).primaryColor,
+      ),
     );
   }
 }
