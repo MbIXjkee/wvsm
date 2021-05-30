@@ -25,7 +25,40 @@ class TestPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(),
+      body: Column(
+        children: [
+          Expanded(
+            child: Theme(
+              data: ThemeData(
+                accentColor: Colors.red,
+              ),
+              child: testWidget,
+            ),
+          ),
+          Expanded(
+            child: Theme(
+              data: ThemeData(
+                accentColor: Colors.green,
+              ),
+              child: testWidget,
+            ),
+          ),
+          Expanded(child: testWidget),
+        ],
+      ),
+    );
+  }
+}
+
+const testWidget = MyTestWidget();
+
+class MyTestWidget extends StatelessWidget {
+  const MyTestWidget({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Theme.of(context).accentColor,
     );
   }
 }
