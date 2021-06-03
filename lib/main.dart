@@ -70,37 +70,7 @@ class _TestPageState extends State<TestPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: MediaQuery.of(context).orientation == Orientation.portrait
-            ? const _HolderWidget()
-            : const _CounterWidget(),
-      ),
+      body: Center(),
     );
-  }
-
-  Widget _buildCounter() {
-    return Text('Count ${Counter.of(context).value}');
-  }
-
-  Widget _buildHolder() {
-    return Text('Здесь могла быть ваша реклама');
-  }
-}
-
-class _CounterWidget extends StatelessWidget {
-  const _CounterWidget({Key key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Text('Count ${Counter.of(context).value}');
-  }
-}
-
-class _HolderWidget extends StatelessWidget {
-  const _HolderWidget({Key key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Text('Здесь могла быть ваша реклама');
   }
 }
