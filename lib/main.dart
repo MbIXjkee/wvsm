@@ -38,8 +38,8 @@ class _TestPageState extends State<TestPage> {
           children: [
             AnimatedSwitcher(
               duration: const Duration(seconds: 1),
-              // child: isLoading ? Loader() : Profile(),
-              child: isLoading ? buildLoader() : buildProfile(),
+              child: isLoading ? Loader() : Profile(),
+              // child: isLoading ? buildLoader() : buildProfile(),
             ),
           ],
         ),
