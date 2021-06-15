@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
 }
 
 class TestPage extends StatefulWidget {
-  const TestPage({Key key}) : super(key: key);
+  const TestPage({Key? key}) : super(key: key);
 
   @override
   _TestPageState createState() => _TestPageState();
