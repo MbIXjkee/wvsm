@@ -66,6 +66,8 @@ class _TestPageState extends State<TestPage> {
 }
 
 class Loader extends StatelessWidget {
+  const Loader({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Icon(
@@ -76,6 +78,8 @@ class Loader extends StatelessWidget {
 }
 
 class Profile extends StatelessWidget {
+  const Profile({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Icon(
