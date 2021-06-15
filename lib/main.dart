@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
 }
 
 class Count extends ValueNotifier<int> {
-  Timer _timer;
+  late Timer _timer;
 
   Count() : super(0) {
     _timer = Timer.periodic(Duration(seconds: 1), _tick);
@@ -38,7 +38,6 @@ class Count extends ValueNotifier<int> {
   @override
   void dispose() {
     _timer.cancel();
-    _timer = null;
 
     super.dispose();
   }
@@ -46,21 +45,26 @@ class Count extends ValueNotifier<int> {
 
 class Counter extends InheritedNotifier {
   Counter({
-    Key key,
-    @required this.count,
-    Widget child,
-  })  : assert(count != null),
-        super(key: key, child: child, notifier: count);
+    Key? key,
+    required this.count,
+    required Widget child,
+  })  : super(key: key, child: child, notifier: count);
 
   final Count count;
 
   static Count of(BuildContext context) {
-    return context.dependOnInheritedWidgetOfExactType<Counter>().count;
+    Counter? counter = context.dependOnInheritedWidgetOfExactType<Counter>();
+
+    if (counter == null) {
+      throw Exception('Counter not found');
+    }
+
+    return counter.count;
   }
 }
 
 class TestPage extends StatefulWidget {
-  const TestPage({Key key}) : super(key: key);
+  const TestPage({Key? key}) : super(key: key);
 
   @override
   _TestPageState createState() => _TestPageState();
