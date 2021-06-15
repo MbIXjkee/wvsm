@@ -17,7 +17,7 @@ class _MyAppState extends State<MyApp> {
       title: 'Flutter Demo',
       theme: ThemeData(
         primaryColor: Colors.red,
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.green,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: buildPage(),
@@ -34,7 +34,7 @@ class _MyAppState extends State<MyApp> {
 }
 
 class TestPage extends StatelessWidget {
-  const TestPage({Key key}) : super(key: key);
+  const TestPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
